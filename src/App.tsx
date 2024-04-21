@@ -1,10 +1,13 @@
-import { GlobalCss } from './styles'
+import { GlobalCss, Container } from './styles'
+import Header from './components/Header'
 
 function App() {
   return (
     <>
       <GlobalCss />
-      <div>Hello, word!</div>
+      <Container>
+        <Header />
+      </Container>
     </>
   )
 }
