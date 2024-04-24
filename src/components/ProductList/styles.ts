@@ -4,7 +4,7 @@ import { cores } from '../../styles'
 import { Card } from '../Product/styles'
 
 // Aplicando a Variação no Background (omitimos o Title)
-export const Container = styled.section<Omit<Props, 'title'>>`
+export const Container = styled.section<Omit<Props, 'title' | 'games'>>`
   padding: 32px 0;
   // Criando a variação do fundo da seção dos cards
   background-color: ${(props) =>

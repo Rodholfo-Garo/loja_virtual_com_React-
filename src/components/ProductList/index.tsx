@@ -1,48 +1,31 @@
+import Game from '../../models/Game'
 import Product from '../Product'
 import { List, Container, Title } from './styles'
 
 export type Props = {
   title: string
   background: 'gray' | 'black'
+  // Game vem de models/Game, ele substitui o conteudo Faka (Hard Coded), ele deve ser omitido em ProductList/styles.ts
+  games: Game[]
 }
 
-const ProductList = ({ title, background }: Props) => (
+const ProductList = ({ title, background, games }: Props) => (
   <Container background={background}>
     <div className="container">
       <Title>{title}</Title>
       <List>
-        <Product
-          category="ação"
-          description="teste"
-          image="//placehold.it/222x250"
-          infos={['-10%', 'R$150']}
-          system="Windows"
-          title="Nome do jogo"
-        />
-        <Product
-          category="ação"
-          description="teste"
-          image="//placehold.it/222x250"
-          infos={['-10%', 'R$150']}
-          system="Windows"
-          title="Nome do jogo"
-        />
-        <Product
-          category="ação"
-          description="teste"
-          image="//placehold.it/222x250"
-          infos={['-10%', 'R$150']}
-          system="Windows"
-          title="Nome do jogo"
-        />
-        <Product
-          category="ação"
-          description="teste"
-          image="//placehold.it/222x250"
-          infos={['-10%', 'R$150']}
-          system="Windows"
-          title="Nome do jogo"
-        />
+        {/* Faz a iteração de Games, estes valores são informados em pages/Home/index.tsx */}
+        {games.map((game) => (
+          <Product
+            key={game.id}
+            category={game.category}
+            description={game.description}
+            image={game.image}
+            infos={game.infos}
+            system={game.system}
+            title={game.title}
+          />
+        ))}
       </List>
     </div>
   </Container>
